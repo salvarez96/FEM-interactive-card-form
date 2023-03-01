@@ -1,0 +1,29 @@
+.card-form-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 90px;
+
+  & > input {
+    width: 100%;
+  }
+}
+
+label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: calc(13rem / 16);
+}
+
+input[type='text'] {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--light-grayish-violet);
+  padding: 0 15px;
+  margin: 10px 0;
+
+  &::placeholder {
+    color: var(--light-grayish-violet);
+  }
+
+}

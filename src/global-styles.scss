@@ -11,14 +11,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline-color: hsl(278, 94%, 30%);
 }
 
 body {
   font-family: 'Space Grotesk';
-  outline-color: var(--active-input);
   font-size: calc(18rem / 16);
 }
 
 button {
   font-family: inherit;
+}
+
+input[type='text'] {
+  font-family: inherit;
+  font-size: calc(15rem / 16);
+  letter-spacing: 1px;
 }
