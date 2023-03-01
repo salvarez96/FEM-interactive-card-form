@@ -8,6 +8,7 @@ export default function CardForm() {
     <div className={styles['card-form-container']}>
       <form>
         <CardInput 
+          type='text'
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
           placeHolder={'e.g Jane Appleseed'}
@@ -36,7 +37,7 @@ export default function CardForm() {
               labelId={'year'}
               placeHolder={'YY'}
               maxLength={2}
-              pattern={"\\d{1,2}"}
+              pattern={"\\d{2,2}"}
             />
           </div>
           <div>
