@@ -21,6 +21,13 @@ body {
 
 button {
   font-family: inherit;
+  background-color: var(--very-dark-violet);
+  color: var(--plain-white);
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: calc(12rem / 16);
 }
 
 input[type='text'] {
