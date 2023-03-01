@@ -45,7 +45,6 @@ export default function CardForm() {
               labelId={'cvc'}
               placeHolder={'e.g 123'}
               maxLength={3}
-              minLength={3}
               pattern={"\\d{3,3}"}
             />
           </div>

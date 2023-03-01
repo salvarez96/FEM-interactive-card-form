@@ -1,6 +1,6 @@
 export interface CardInfo {
-  cardNumber: String;
-  cardHolderName: String;
-  cardExpDate: String;
-  cardCvv: String;
+  cardNumber: string;
+  cardHolderName: string;
+  cardExpDate: string;
+  cardCvv: string;
 }

@@ -1,19 +1,18 @@
 import React from 'react'
+import { CardInputModel } from './card-input.model'
 
-export default function CardInput({ formTitle, labelId, placeHolder, minLength, maxLength, pattern }) {
+export default function CardInput({ formTitle, labelId, placeHolder,  maxLength, pattern }: CardInputModel) {
   return (
     <>
-      <label for={labelId}>{formTitle}</label>
+      <label htmlFor={labelId}>{formTitle}</label>
       <input 
         type="text" 
         id={labelId} 
         placeholder={placeHolder} 
-        minLength={minLength}
         maxLength={maxLength}
         pattern={pattern}
         required
       />
-      {/* <div>cardInput</div> */}
     </>
   )
 }
