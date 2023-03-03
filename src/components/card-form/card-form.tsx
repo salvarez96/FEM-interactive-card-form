@@ -25,7 +25,7 @@ export default function CardForm() {
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
           placeHolder={'e.g Jane Appleseed'}
-          pattern={"^\\w{2,}.*"}
+          pattern={"^\\D+\\S+$"}
           errorMessage={errors.cardHolderNameError}
           onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
             setCardHolderName(e.target.value)
@@ -36,12 +36,25 @@ export default function CardForm() {
           formTitle={'Card number'}
           labelId={'card-number'}
           placeHolder={'e.g 1234 5678 9123 0000'}
-          maxLength={16}
-          minLength={16}
-          pattern={"[0-9]{16,16}"}
+          maxLength={19}
+          minLength={19}
+          pattern={"^(\\d{4,4} )+\\d{4,4}$"}
           errorMessage={errors.cardNumberError}
           onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
-            setCardNumber(e.target.value)
+            const value = e.target.value
+            setCardNumber(value.replaceAll(' ', ''))
+
+            const cardNumberArr = value.split('')
+            if (cardNumberArr[3] && cardNumberArr[4] !== ' ')
+              cardNumberArr.splice(4, 0, ' ')
+
+            if (cardNumberArr[8] && cardNumberArr[9] !== ' ')
+              cardNumberArr.splice(9, 0, ' ')
+
+            if (cardNumberArr[13] && cardNumberArr[14] !== ' ')
+              cardNumberArr.splice(14, 0, ' ')
+                  
+            e.target.value = cardNumberArr.join('')
           }}
           />
         <div className={styles['card-details']}>
