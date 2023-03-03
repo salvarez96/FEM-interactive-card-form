@@ -12,7 +12,8 @@ export default function CardInput({
   pattern, 
   min, 
   max, 
-  errorMessage 
+  errorMessage,
+  onChangeVal
 }: CardInputModel) {
 
   const [error, setError] = React.useState('')
@@ -33,6 +34,7 @@ export default function CardInput({
           validateInfo(e)
           errorMessageHandler(e, setError, errorMessage)
         }}
+        onInput = {onChangeVal}
         required
       />
       <span id={`${labelId}Error`} aria-live='polite'>{error}</span>
