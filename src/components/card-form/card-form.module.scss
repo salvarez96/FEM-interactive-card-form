@@ -22,15 +22,22 @@ input {
   border: 1px solid var(--light-grayish-violet);
   padding: 0 15px;
   margin-top: 10px;
-  margin-bottom: 15px;
   
   &::placeholder {
     color: var(--light-grayish-violet);
   }
-
+  
   &:invalid {
     outline-color: var(--error-color);
   }
+}
+
+span {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  color: var(--error-color);
+  min-height: calc(17rem / 16);
 }
 
 .card-details {

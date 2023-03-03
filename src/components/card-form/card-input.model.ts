@@ -1,8 +1,12 @@
 export interface CardInputModel {
-  formTitle: string;
-  labelId: string;
-  placeHolder: string;
-  type?: 'text' | 'tel';
+  formTitle: string
+  labelId: string
+  placeHolder: string
+  errorMessage: () => string
+  type?: 'text' | 'tel' | 'number'
   maxLength?: number;
-  pattern?: string;
+  minLength?: number
+  pattern?: string
+  min?: number
+  max?: number
 }
