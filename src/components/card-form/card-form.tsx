@@ -2,7 +2,7 @@ import React from 'react'
 import CardInput from './card-input'
 import styles from './card-form.module.scss'
 import Button from '../globals/Button'
-import { errorMessages } from './error-messages'
+import { errorMessages } from './logic/error-messages'
 
 const errors = errorMessages()
 
