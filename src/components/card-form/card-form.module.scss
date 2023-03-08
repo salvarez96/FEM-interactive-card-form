@@ -77,3 +77,32 @@ span {
 button {
   width: 100%;
 }
+
+.confirmation-container {
+  $margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 80px;
+    margin-bottom: $margin;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: calc(2rem / 16);
+    font-size: calc(32rem / 16);
+    font-weight: normal;
+    margin-bottom: calc($margin / 3);
+  }
+  
+  p {
+    font-size: calc(18rem / 16);
+    color: var(--dark-grayish-violet)
+  }
+
+  button {
+    margin-top: $margin;
+  }
+}

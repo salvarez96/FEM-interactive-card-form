@@ -5,6 +5,7 @@ import Button from '../globals/Button'
 import { errorMessages } from './logic/error-messages'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
 import { handleFormSubmission } from './logic/form-submission'
+import Confirmation from './confirmation'
 
 const errors = errorMessages()
 
@@ -23,7 +24,7 @@ export default function CardForm() {
 
   return (
     <div className={styles['card-form-container']}>
-      <form onSubmit={(e) => handleFormSubmission(
+      {!formSubmission && <form onSubmit={(e) => handleFormSubmission(
         e, 
         formSubmission,
         setFormSubmission,
@@ -117,7 +118,11 @@ export default function CardForm() {
           type={'submit'}
           buttonText={'Confirm'}
         />
-      </form>
+      </form> 
+      || formSubmission && 
+      <Confirmation
+        className={styles['confirmation-container']}
+      />}
     </div>
   )
 }
