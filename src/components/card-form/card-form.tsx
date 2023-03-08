@@ -1,25 +1,34 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, FormEvent } from 'react'
 import CardInput from './card-input'
 import styles from './card-form.module.scss'
 import Button from '../globals/Button'
 import { errorMessages } from './logic/error-messages'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
+import { handleFormSubmission } from './logic/form-submission'
 
 const errors = errorMessages()
 
 export default function CardForm() {
 
   const {
+    cardHolderName,
     setCardHolderName, 
     setCardNumber,
     setCardExpMM,
     setCardExpYY,
-    setCardCvv
+    setCardCvv,
+    formSubmission,
+    setFormSubmission
   } = React.useContext(CardInfoGlobalContext)
 
   return (
     <div className={styles['card-form-container']}>
-      <form>
+      <form onSubmit={(e) => handleFormSubmission(
+        e, 
+        formSubmission,
+        setFormSubmission,
+        cardHolderName
+        )}>
         <CardInput 
           type='text'
           formTitle={'Cardholder name'}
