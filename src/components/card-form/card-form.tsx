@@ -4,41 +4,34 @@ import styles from './card-form.module.scss'
 import Button from '../globals/Button'
 import { errorMessages } from './logic/error-messages'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
-import { handleFormSubmission } from './logic/form-submission'
 import Confirmation from './confirmation'
+import CardFormContainer from './card-form-container'
 
 const errors = errorMessages()
 
 export default function CardForm() {
 
   const {
-    cardHolderName,
     setCardHolderName, 
     setCardNumber,
     setCardExpMM,
     setCardExpYY,
     setCardCvv,
     formSubmission,
-    setFormSubmission
   } = React.useContext(CardInfoGlobalContext)
 
   return (
     <div className={styles['card-form-container']}>
-      {!formSubmission && <form onSubmit={(e) => handleFormSubmission(
-        e, 
-        formSubmission,
-        setFormSubmission,
-        cardHolderName
-        )}>
+      {!formSubmission && <CardFormContainer>
         <CardInput 
           type='text'
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
           placeHolder={'e.g Jane Appleseed'}
-          pattern={"^\\D+\\S+$"}
+          pattern={"^\\D+\\S+[\\D]$"}
           errorMessage={errors.cardHolderNameError}
           onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
-            setCardHolderName(e.target.value)
+            setCardHolderName(e.target.value.trim())
           }}
           />
         <CardInput 
@@ -118,7 +111,7 @@ export default function CardForm() {
           type={'submit'}
           buttonText={'Confirm'}
         />
-      </form> 
+      </CardFormContainer> 
       || formSubmission && 
       <Confirmation
         className={styles['confirmation-container']}

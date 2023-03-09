@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear() - 2000
+
 export function errorMessages() {
   return {
     cardHolderNameError() {
@@ -7,10 +9,10 @@ export function errorMessages() {
       return 'Enter a valid 16 digit number'
     },
     mmError() {
-      return 'Enter a valid month'
+      return 'Enter a valid month between 1 and 12'
     },
     yyError() {
-      return 'Enter a valid year equal or greater than the current year'
+      return `Enter a valid year equal or greater than ${currentYear}`
     },
     cvcError() {
       return 'Enter a valid 3 digit CVC'

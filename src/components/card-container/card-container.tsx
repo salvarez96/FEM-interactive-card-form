@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './card-container.module.scss'
 import { CardInfo } from './card.model'
 import { manageCardNumberData, manageExpDateData } from './logic/card-data-management'
