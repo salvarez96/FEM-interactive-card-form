@@ -4,7 +4,14 @@ import Button from '../globals/Button'
 
 export default function Confirmation(props: { className?: string } ) {
 
-  const { setFormSubmission } = React.useContext(CardInfoGlobalContext)
+  const { 
+    setFormSubmission,
+    setCardHolderName,
+    setCardNumber,
+    setCardExpMM,
+    setCardExpYY,
+    setCardCvv
+   } = React.useContext(CardInfoGlobalContext)
 
   return (
     <div className={props.className}>
@@ -14,7 +21,14 @@ export default function Confirmation(props: { className?: string } ) {
       <Button
         type={'button'}
         buttonText={'Continue'}
-        onClick={() => setFormSubmission(false)}
+        onClick={() => {
+          setFormSubmission(false)
+          setCardHolderName('')
+          setCardNumber('')
+          setCardExpMM('')
+          setCardExpYY('')
+          setCardCvv('')
+        }}
       />
     </div>
   )

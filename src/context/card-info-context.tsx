@@ -1,6 +1,8 @@
 import React, { PropsWithChildren } from 'react'
+import { CardInfoContextModel } from './card-info-context.model'
 
-export const CardInfoGlobalContext = React.createContext<any>(null)
+// @ts-expect-error
+export const CardInfoGlobalContext = React.createContext<CardInfoContextModel>(CardInfoContext)
 
 export default function CardInfoContext(prop: PropsWithChildren) {
   const [cardHolderName, setCardHolderName] = React.useState('')

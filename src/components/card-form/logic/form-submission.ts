@@ -1,6 +1,7 @@
 import { FormEvent } from "react"
+import { CardInfoContextModel } from "../../../context/card-info-context.model"
 
-export function handleFormSubmission(e: FormEvent<HTMLFormElement>, formSubmission: boolean, setFormSubmission: (T: boolean) => boolean, cardHolderName: string) {
+export function handleFormSubmission(e: FormEvent<HTMLFormElement>, formSubmission: boolean, setFormSubmission: CardInfoContextModel['setFormSubmission'], cardHolderName: string) {
   e.preventDefault()
   setFormSubmission(true)
   if (formSubmission) {
