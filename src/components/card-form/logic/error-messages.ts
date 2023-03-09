@@ -6,7 +6,7 @@ export function errorMessages() {
       return 'Enter your name as it appears in your card'
     },
     cardNumberError() {
-      return 'Enter a valid 16 digit number'
+      return 'Enter a valid number between 13 and 16 digits'
     },
     mmError() {
       return 'Enter a valid month between 1 and 12'
@@ -15,7 +15,7 @@ export function errorMessages() {
       return `Enter a valid year equal or greater than ${currentYear}`
     },
     cvcError() {
-      return 'Enter a valid 3 digit CVC'
+      return 'Enter a valid 3 or 4 digit CVC'
     }
   }
 }

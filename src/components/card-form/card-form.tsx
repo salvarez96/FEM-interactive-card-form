@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from 'react'
+import React from 'react'
 import CardInput from './card-input'
 import styles from './card-form.module.scss'
 import Button from '../globals/Button'
@@ -17,7 +17,7 @@ export default function CardForm() {
     setCardExpMM,
     setCardExpYY,
     setCardCvv,
-    formSubmission,
+    formSubmission
   } = React.useContext(CardInfoGlobalContext)
 
   return (
@@ -28,9 +28,10 @@ export default function CardForm() {
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
           placeHolder={'e.g Jane Appleseed'}
-          pattern={"^\\D+\\S+[\\D]$"}
+          maxLength={40}
+          pattern={"^\\D+"}
           errorMessage={errors.cardHolderNameError}
-          onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
+          onChangeVal={(e) => {
             setCardHolderName(e.target.value.trim())
           }}
           />
@@ -40,10 +41,10 @@ export default function CardForm() {
           labelId={'card-number'}
           placeHolder={'e.g 1234 5678 9123 0000'}
           maxLength={19}
-          minLength={19}
-          pattern={"^(\\d{4,4} )+\\d{4,4}$"}
+          minLength={13}
+          pattern={"^(\\d{4,4} )+\\d{1,4}$"}
           errorMessage={errors.cardNumberError}
-          onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
+          onChangeVal={(e) => {
             const value = e.target.value
             setCardNumber(value.replaceAll(' ', ''))
 
@@ -73,7 +74,7 @@ export default function CardForm() {
               min={1}
               max={12}
               errorMessage={errors.mmError}
-              onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
+              onChangeVal={(e) => {
                 setCardExpMM(e.target.value)
               }}
               />
@@ -83,11 +84,12 @@ export default function CardForm() {
               formTitle={'YY'}
               labelId={'year'}
               placeHolder={'YY'}
+              minLength={2}
               maxLength={2}
               pattern={"\\d{2,2}"}
               min={new Date().getFullYear() - 2000}
               errorMessage={errors.yyError}
-              onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
+              onChangeVal={(e) => {
                 setCardExpYY(e.target.value)
               }}
               />
@@ -98,10 +100,10 @@ export default function CardForm() {
               formTitle={'Cvc'}
               labelId={'cvc'}
               placeHolder={'e.g 123'}
-              maxLength={3}
-              pattern={"\\d{3,3}"}
+              maxLength={4}
+              pattern={"\\d{3,4}"}
               errorMessage={errors.cvcError}
-              onChangeVal={(e: ChangeEvent<HTMLInputElement>) => {
+              onChangeVal={(e) => {
                 setCardCvv(e.target.value)
               }}
               />

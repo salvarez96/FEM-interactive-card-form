@@ -1,9 +1,11 @@
+import { ChangeEvent } from "react";
+
 export interface CardInputModel {
   formTitle: string
   labelId: string
   placeHolder: string
   errorMessage: () => string,
-  onChangeVal: any
+  onChangeVal: (e: ChangeEvent<HTMLInputElement>) => void
   type?: 'text' | 'tel' | 'number'
   maxLength?: number;
   minLength?: number

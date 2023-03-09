@@ -33,8 +33,8 @@ export default function CardInput({
         onChange={(e) => {
           validateInfo(e)
           errorMessageHandler(e, setError, errorMessage)
+          onChangeVal(e)
         }}
-        onInput = {onChangeVal}
         required
       />
       <span id={`${labelId}Error`} aria-live='polite'>{error}</span>

@@ -1,4 +1,5 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent, Dispatch } from "react"
+import { CardInputModel } from "../card-input.model"
 
 export function validateInfo(e: ChangeEvent<HTMLInputElement>) {
   const value = e.target.value
@@ -30,8 +31,8 @@ export function validateInfo(e: ChangeEvent<HTMLInputElement>) {
 
 export function errorMessageHandler(
   e: ChangeEvent<HTMLInputElement>,
-  errorSetter: React.Dispatch<React.SetStateAction<string>>, 
-  errorMessage: () => string
+  errorSetter: Dispatch<React.SetStateAction<string>>, 
+  errorMessage: CardInputModel['errorMessage']
   ) {
   if (!e.target.validity.valid) {
     errorSetter(errorMessage())

@@ -17,13 +17,16 @@ export default function CardFormContainer({ children }: PropsWithChildren) {
   function handleFormSubmission(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (cardHolderName.length > 1 
+      && cardHolderName.length <= 40
       && !cardHolderName.match(/\d/g)
-      && cardNumber.length === 16 
+      && cardNumber.length >= 13
+      && cardNumber.length <= 16
       && !isNaN(Number(cardNumber))
       && Number(cardExpMM) >= 1 
       && Number(cardExpMM) <= 12 
       && Number(cardExpYY) >= currentYear 
-      && cardCvv.length === 3
+      && cardCvv.length >= 3
+      && cardCvv.length <= 4
       && !isNaN(Number(cardCvv))
       ) {
       setFormSubmission(true)
