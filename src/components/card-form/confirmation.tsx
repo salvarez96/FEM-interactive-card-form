@@ -15,7 +15,7 @@ export default function Confirmation(props: { className?: string } ) {
 
   return (
     <div className={props.className}>
-      <img src="/icon-complete.svg" alt="Details added" />
+      <img src="./icon-complete.svg" alt="Details added" />
       <h2>Thank You!</h2>
       <p>We've added your card details</p>
       <Button
