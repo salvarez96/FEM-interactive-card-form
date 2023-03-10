@@ -41,3 +41,12 @@ input {
   font-size: calc(15rem / 16);
   letter-spacing: 1px;
 }
+
+@media (min-width: 1360px) {
+  #root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
+}

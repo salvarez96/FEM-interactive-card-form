@@ -1,6 +1,6 @@
 .card-form-container {
   width: 90%;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   margin-top: 90px;
   font-size: calc(13rem / 16);
@@ -104,5 +104,12 @@ button {
 
   button {
     margin-top: $margin;
+  }
+}
+
+@media (min-width: 1360px) {
+  .card-form-container {
+    grid-column: 4/6;
+    margin-top: 0;
   }
 }
