@@ -31,7 +31,7 @@ export default function CardForm() {
           placeHolder={'e.g Jane Appleseed'}
           minLength={2}
           maxLength={40}
-          pattern={"^\\D+"}
+          pattern={"^\\D{2,40}"}
           errorMessage={errors.cardHolderNameError}
           onChangeVal={(e) => {
             setCardHolderName(e.target.value.trim())
