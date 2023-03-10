@@ -11,7 +11,8 @@ export default function CardInput({
   minLength, 
   pattern, 
   min, 
-  max, 
+  max,
+  list, 
   errorMessage,
   onChangeVal
 }: CardInputModel) {
@@ -30,6 +31,7 @@ export default function CardInput({
         pattern={pattern}
         min={min}
         max={max}
+        list={list}
         onChange={(e) => {
           validateInfo(e)
           errorMessageHandler(e, setError, errorMessage)

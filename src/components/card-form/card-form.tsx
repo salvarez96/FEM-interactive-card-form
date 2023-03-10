@@ -8,6 +8,7 @@ import Confirmation from './confirmation'
 import CardFormContainer from './card-form-container'
 
 const errors = errorMessages()
+const months = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 export default function CardForm() {
 
@@ -28,6 +29,7 @@ export default function CardForm() {
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
           placeHolder={'e.g Jane Appleseed'}
+          minLength={2}
           maxLength={40}
           pattern={"^\\D+"}
           errorMessage={errors.cardHolderNameError}
@@ -68,25 +70,23 @@ export default function CardForm() {
               formTitle={'MM'}
               labelId={'month'}
               placeHolder={'MM'}
-              maxLength={2}
-              minLength={1}
-              pattern={"\\d{1,2}"}
               min={1}
               max={12}
+              list='months'
               errorMessage={errors.mmError}
               onChangeVal={(e) => {
                 setCardExpMM(e.target.value)
               }}
               />
+              <datalist id='months'>
+                {months.map((month, i) => <option key={`${i}`} value={month} />)}
+              </datalist>
           </div>
           <div>
             <CardInput 
               formTitle={'YY'}
               labelId={'year'}
               placeHolder={'YY'}
-              minLength={2}
-              maxLength={2}
-              pattern={"\\d{2,2}"}
               min={new Date().getFullYear() - 2000}
               errorMessage={errors.yyError}
               onChangeVal={(e) => {
