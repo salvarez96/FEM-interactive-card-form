@@ -13,7 +13,7 @@ export default function CardContainer({
   return (
     <div className={styles['card-container']}>
       <div className={styles['card-front']}>
-        <img className={styles['card-logo']} src="/public/card-logo.svg" alt="card logo" />
+        <img className={styles['card-logo']} src="/card-logo.svg" alt="card logo" />
         <p className={styles['card-number']}>
           {
             !cardNumber 
