@@ -42,7 +42,7 @@ export default function CardForm() {
           placeHolder={'e.g 1234 5678 9123 0000'}
           maxLength={19}
           minLength={13}
-          pattern={"^(\\d{4,4} )+\\d{1,4}$"}
+          pattern={"^(\\d{4,4} ){3,3}\\d{1,4}$"}
           errorMessage={errors.cardNumberError}
           onChangeVal={(e) => {
             const value = e.target.value
@@ -57,7 +57,7 @@ export default function CardForm() {
 
             if (cardNumberArr[13] && cardNumberArr[14] !== ' ')
               cardNumberArr.splice(14, 0, ' ')
-                  
+
             e.target.value = cardNumberArr.join('')
           }}
           />

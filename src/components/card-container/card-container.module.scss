@@ -129,6 +129,7 @@ $large-letter: calc(16rem / 16);
     
     .card-cvv {
       font-size: $large-letter;
+      letter-spacing: 1px;
     }
   }
 }
