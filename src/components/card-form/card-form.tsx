@@ -25,10 +25,9 @@ export default function CardForm() {
     <div className={styles['card-form-container']}>
       {!formSubmission && <CardFormContainer>
         <CardInput 
-          type='text'
           formTitle={'Cardholder name'}
           labelId={'card-holder-name'}
-          placeHolder={'e.g Jane Appleseed'}
+          placeholder={'e.g Jane Appleseed'}
           minLength={2}
           maxLength={40}
           pattern={"^\\D{2,40}"}
@@ -41,7 +40,7 @@ export default function CardForm() {
           type='tel'
           formTitle={'Card number'}
           labelId={'card-number'}
-          placeHolder={'e.g 1234 5678 9123 0000'}
+          placeholder={'e.g 1234 5678 9123 0000'}
           maxLength={19}
           minLength={13}
           pattern={"^(\\d{4,4} ){3,3}\\d{1,4}$"}
@@ -67,9 +66,10 @@ export default function CardForm() {
           <p>EXP.DATE</p>
           <div>
             <CardInput 
+              type='number'
               formTitle={'MM'}
               labelId={'month'}
-              placeHolder={'MM'}
+              placeholder={'MM'}
               min={1}
               max={12}
               list='months'
@@ -84,9 +84,10 @@ export default function CardForm() {
           </div>
           <div>
             <CardInput 
+              type='number'
               formTitle={'YY'}
               labelId={'year'}
-              placeHolder={'YY'}
+              placeholder={'YY'}
               min={new Date().getFullYear() - 2000}
               errorMessage={errors.yyError}
               onChangeVal={(e) => {
@@ -99,7 +100,7 @@ export default function CardForm() {
               type='tel'
               formTitle={'Cvc'}
               labelId={'cvc'}
-              placeHolder={'e.g 123'}
+              placeholder={'e.g 123'}
               maxLength={4}
               pattern={"\\d{3,4}"}
               errorMessage={errors.cvcError}

@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FormEvent } from "react"
+import { Dispatch, FormEvent } from "react"
 import { CardInputModel } from "../card-input.model"
 
 export function validateInfo(e: FormEvent<HTMLInputElement>) {

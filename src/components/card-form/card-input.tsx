@@ -6,7 +6,6 @@ export default function CardInput({
   type, 
   formTitle, 
   labelId, 
-  placeHolder, 
   errorMessage,
   onChangeVal,
   ...inputAttr
@@ -18,15 +17,8 @@ export default function CardInput({
     <>
       <label htmlFor={labelId}>{formTitle}</label>
       <input 
-        type={type ?? 'number'}
+        type={type ?? 'text'}
         id={labelId} 
-        placeholder={placeHolder} 
-        // maxLength={maxLength}
-        // minLength={minLength}
-        // pattern={pattern}
-        // min={min}
-        // max={max}
-        // list={list}
         onChange={(e) => {
           validateInfo(e)
           errorMessageHandler(e, setError, errorMessage)
