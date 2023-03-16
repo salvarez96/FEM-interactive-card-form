@@ -1,16 +1,17 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent, InputHTMLAttributes } from "react";
 
-export interface CardInputModel {
+export interface CardInputModel extends InputHTMLAttributes<HTMLInputElement>{
   formTitle: string
   labelId: string
   placeHolder: string
-  errorMessage: () => string,
-  onChangeVal: (e: ChangeEvent<HTMLInputElement>) => void
+  errorMessage: () => string
   type?: 'text' | 'tel' | 'number'
-  maxLength?: number
-  minLength?: number
-  pattern?: string
-  min?: number
-  max?: number
-  list?: string
+  onChangeVal: (e: FormEvent<HTMLInputElement>) => void
+  // maxLength?: number
+  // minLength?: number
+  // pattern?: string
+  // min?: number
+  // max?: number
+  // list?: string
 }
+

@@ -34,7 +34,7 @@ export default function CardForm() {
           pattern={"^\\D{2,40}"}
           errorMessage={errors.cardHolderNameError}
           onChangeVal={(e) => {
-            setCardHolderName(e.target.value.trim())
+            setCardHolderName(e.currentTarget.value.trim())
           }}
           />
         <CardInput 
@@ -47,7 +47,7 @@ export default function CardForm() {
           pattern={"^(\\d{4,4} ){3,3}\\d{1,4}$"}
           errorMessage={errors.cardNumberError}
           onChangeVal={(e) => {
-            const value = e.target.value
+            const value = e.currentTarget.value
             setCardNumber(value.replaceAll(' ', ''))
 
             const cardNumberArr = value.split('')
@@ -60,7 +60,7 @@ export default function CardForm() {
             if (cardNumberArr[13] && cardNumberArr[14] !== ' ')
               cardNumberArr.splice(14, 0, ' ')
 
-            e.target.value = cardNumberArr.join('')
+            e.currentTarget.value = cardNumberArr.join('')
           }}
           />
         <div className={styles['card-details']}>
@@ -75,7 +75,7 @@ export default function CardForm() {
               list='months'
               errorMessage={errors.mmError}
               onChangeVal={(e) => {
-                setCardExpMM(e.target.value)
+                setCardExpMM(e.currentTarget.value)
               }}
               />
               <datalist id='months'>
@@ -90,7 +90,7 @@ export default function CardForm() {
               min={new Date().getFullYear() - 2000}
               errorMessage={errors.yyError}
               onChangeVal={(e) => {
-                setCardExpYY(e.target.value)
+                setCardExpYY(e.currentTarget.value)
               }}
               />
           </div>
@@ -104,7 +104,7 @@ export default function CardForm() {
               pattern={"\\d{3,4}"}
               errorMessage={errors.cvcError}
               onChangeVal={(e) => {
-                setCardCvv(e.target.value)
+                setCardCvv(e.currentTarget.value)
               }}
               />
           </div>

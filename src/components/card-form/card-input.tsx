@@ -7,14 +7,9 @@ export default function CardInput({
   formTitle, 
   labelId, 
   placeHolder, 
-  maxLength, 
-  minLength, 
-  pattern, 
-  min, 
-  max,
-  list, 
   errorMessage,
-  onChangeVal
+  onChangeVal,
+  ...inputAttr
 }: CardInputModel) {
 
   const [error, setError] = React.useState('')
@@ -26,17 +21,18 @@ export default function CardInput({
         type={type ?? 'number'}
         id={labelId} 
         placeholder={placeHolder} 
-        maxLength={maxLength}
-        minLength={minLength}
-        pattern={pattern}
-        min={min}
-        max={max}
-        list={list}
+        // maxLength={maxLength}
+        // minLength={minLength}
+        // pattern={pattern}
+        // min={min}
+        // max={max}
+        // list={list}
         onChange={(e) => {
           validateInfo(e)
           errorMessageHandler(e, setError, errorMessage)
           onChangeVal(e)
         }}
+        { ...inputAttr }
         required
       />
       <span id={`${labelId}Error`} aria-live='polite'>{error}</span>
