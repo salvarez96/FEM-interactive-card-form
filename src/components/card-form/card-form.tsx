@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react'
 import CardInput from './card-input'
 import styles from './card-form.module.scss'
 import Button from '../globals/Button'
@@ -19,7 +19,7 @@ export default function CardForm() {
     setCardExpYY,
     setCardCvv,
     formSubmission
-  } = React.useContext(CardInfoGlobalContext)
+  } = useContext(CardInfoGlobalContext)
 
   return (
     <div className={styles['card-form-container']}>

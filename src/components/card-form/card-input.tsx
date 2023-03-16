@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardInputModel } from './card-input.model'
+import type { CardInputModel } from './card-input.model'
 import { errorMessageHandler, validateInfo } from './logic/validation-logic'
 
 export default function CardInput({ 

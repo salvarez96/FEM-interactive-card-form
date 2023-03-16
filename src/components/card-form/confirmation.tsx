@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
 import Button from '../globals/Button'
 
@@ -11,7 +11,7 @@ export default function Confirmation(props: { className?: string } ) {
     setCardExpMM,
     setCardExpYY,
     setCardCvv
-   } = React.useContext(CardInfoGlobalContext)
+   } = useContext(CardInfoGlobalContext)
 
   return (
     <div className={props.className}>

@@ -1,4 +1,5 @@
-import React, { FormEvent, PropsWithChildren } from 'react'
+import { useContext } from 'react'
+import type { FormEvent, PropsWithChildren } from 'react'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
 
 const currentYear = new Date().getFullYear() - 2000
@@ -12,7 +13,7 @@ export default function CardFormContainer({ children }: PropsWithChildren) {
     cardExpMM,
     cardExpYY,
     cardCvv
-  } = React.useContext(CardInfoGlobalContext)
+  } = useContext(CardInfoGlobalContext)
 
   function handleFormSubmission(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()

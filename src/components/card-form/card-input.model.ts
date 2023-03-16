@@ -1,4 +1,4 @@
-import { FormEvent, InputHTMLAttributes } from "react";
+import type { FormEvent, InputHTMLAttributes } from "react";
 
 export interface CardInputModel extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'id'>{
   /**

@@ -1,16 +1,17 @@
-import React, { PropsWithChildren } from 'react'
-import { CardInfoContextModel } from './card-info-context.model'
+import { createContext, useState } from 'react'
+import type { PropsWithChildren } from 'react'
+import type { CardInfoContextModel } from './card-info-context.model'
 
 // @ts-expect-error
-export const CardInfoGlobalContext = React.createContext<CardInfoContextModel>(CardInfoContext)
+export const CardInfoGlobalContext = createContext<CardInfoContextModel>(CardInfoContext)
 
-export default function CardInfoContext(prop: PropsWithChildren) {
-  const [cardHolderName, setCardHolderName] = React.useState('')
-  const [cardNumber, setCardNumber] = React.useState('')
-  const [cardExpMM, setCardExpMM] = React.useState('')
-  const [cardExpYY, setCardExpYY] = React.useState('')
-  const [cardCvv, setCardCvv] = React.useState('')
-  const [formSubmission, setFormSubmission] = React.useState(false)
+export default function CardInfoContext({ children }: PropsWithChildren) {
+  const [cardHolderName, setCardHolderName] = useState('')
+  const [cardNumber, setCardNumber] = useState('')
+  const [cardExpMM, setCardExpMM] = useState('')
+  const [cardExpYY, setCardExpYY] = useState('')
+  const [cardCvv, setCardCvv] = useState('')
+  const [formSubmission, setFormSubmission] = useState(false)
 
   return (
     <CardInfoGlobalContext.Provider value={{
@@ -27,7 +28,7 @@ export default function CardInfoContext(prop: PropsWithChildren) {
       formSubmission,
       setFormSubmission
     }}>
-      { prop.children }
+      { children }
     </CardInfoGlobalContext.Provider>
   )
 }

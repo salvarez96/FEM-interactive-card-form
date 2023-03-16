@@ -1,5 +1,5 @@
-import { Dispatch, FormEvent } from "react"
-import { CardInputModel } from "../card-input.model"
+import type { Dispatch, FormEvent } from "react"
+import type { CardInputModel } from "../card-input.model"
 
 export function validateInfo(e: FormEvent<HTMLInputElement>) {
   const value = e.currentTarget.value

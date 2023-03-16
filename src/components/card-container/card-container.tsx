@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react'
 import { CardInfoGlobalContext } from '../../context/card-info-context'
 import styles from './card-container.module.scss'
 import { manageCardNumberData, manageExpDateData } from './logic/card-data-management'
@@ -11,7 +11,7 @@ export default function CardContainer() {
     cardExpMM,
     cardExpYY,
     cardCvv
-  } = React.useContext(CardInfoGlobalContext)
+  } = useContext(CardInfoGlobalContext)
 
   return (
     <div className={styles['card-container']}>
